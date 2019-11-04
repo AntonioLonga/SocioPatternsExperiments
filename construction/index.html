@@ -8,7 +8,7 @@
   
   
   <link rel="shortcut icon" href="../img/favicon.ico">
-  <title>Utilities - SocioPatterns</title>
+  <title>Construction - SocioPatterns</title>
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
 
   <link rel="stylesheet" href="../css/theme.css" type="text/css" />
@@ -17,8 +17,8 @@
   
   <script>
     // Current page data
-    var mkdocs_page_name = "Utilities";
-    var mkdocs_page_input_path = "utilities.md";
+    var mkdocs_page_name = "Construction";
+    var mkdocs_page_input_path = "construction.md";
     var mkdocs_page_url = null;
   </script>
   
@@ -53,12 +53,17 @@
     <a class="" href="..">Home</a>
 	    </li>
           
+            <li class="toctree-l1">
+		
+    <a class="" href="../utilities/">Utilities</a>
+	    </li>
+          
             <li class="toctree-l1 current">
 		
-    <a class="current" href="./">Utilities</a>
+    <a class="current" href="./">Construction</a>
     <ul class="subnav">
             
-    <li class="toctree-l2"><a href="#utilities">Utilities</a></li>
+    <li class="toctree-l2"><a href="#construction">Construction</a></li>
     
         <ul>
         
@@ -70,8 +75,6 @@
         
             <li><a class="toctree-l3" href="#build_graphs">build_graphs</a></li>
         
-            <li><a class="toctree-l3" href="#plot_graphs">plot_graphs</a></li>
-        
             <li><a class="toctree-l3" href="#build_weighted_graph">build_weighted_graph</a></li>
         
             <li><a class="toctree-l3" href="#build_weighted_graph_2">build_weighted_graph_2</a></li>
@@ -80,11 +83,6 @@
     
 
     </ul>
-	    </li>
-          
-            <li class="toctree-l1">
-		
-    <a class="" href="../construction/">Construction</a>
 	    </li>
           
         </ul>
@@ -109,7 +107,7 @@
     
       
     
-    <li>Utilities</li>
+    <li>Construction</li>
     <li class="wy-breadcrumbs-aside">
       
     </li>
@@ -119,13 +117,13 @@
           <div role="main">
             <div class="section">
               
-                <h1 id="utilities">Utilities</h1>
+                <h1 id="construction">Construction</h1>
 <p>import the library using </p>
-<pre><code>import utilities
+<pre><code>import construction
 </code></pre>
 
 <h2 id="load_data">load_data</h2>
-<pre><code>utilities.load_data(path)
+<pre><code>construction.load_data(path)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -137,7 +135,7 @@
 <p>Data = np.ndarray of elements, each line is an entry af the array.   </p>
 </blockquote>
 <h2 id="individuals">individuals</h2>
-<pre><code>utilities.individuals(data)
+<pre><code>construction.individuals(data)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -149,7 +147,7 @@
 <p>An unique list of people in the input data.   </p>
 </blockquote>
 <h2 id="split_input_data">split_input_data</h2>
-<pre><code>utilities.split_input_data(data, gap=19)
+<pre><code>construction.split_input_data(data, gap=19)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -162,7 +160,7 @@ gap = gap of time used to separate the data.</p>
 <p>An multidimensional array, where each array represent the interacion among entries in the specified gap of time.   </p>
 </blockquote>
 <h2 id="build_graphs">build_graphs</h2>
-<pre><code>utilities.build_graphs(data,gap=19)
+<pre><code>construction.build_graphs(data,gap=19)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -175,22 +173,8 @@ gap = gap of time used to separate the data.</p>
 <p>Graphs = An array, where each entry is a nx.Graph() that represent the interacion among entries in the specified gap of time. <br />
 pos = The networkx position of each node in the graph layout, it is used if you want to use also the funciont <strong>plot_graphs</strong>.   </p>
 </blockquote>
-<h2 id="plot_graphs">plot_graphs</h2>
-<pre><code>utilities.plot_graphs(graphs, splitted\_data,pos)
-</code></pre>
-
-<p><strong>Input</strong>  </p>
-<blockquote>
-<p>graphs = An array of nx.Graphs.<br />
-splitted_data = multidimensional array containing the splitted input file<br />
-pos = The nx.position returned by the function <strong>build_graphs</strong></p>
-</blockquote>
-<p><strong>Output</strong>  </p>
-<blockquote>
-<p>Plots N graphs, each graph shows the interactions that happened in the gap of time. It also plots the histogram of the interactions, highlighting the current time.</p>
-</blockquote>
 <h2 id="build_weighted_graph">build_weighted_graph</h2>
-<pre><code>utilities.build\_weighted\_graph(data,gap)
+<pre><code>construction.build\_weighted\_graph(data,gap)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -203,7 +187,7 @@ gap = gap of time used to separate the data.</p>
 <p>Return a Graph of interaction of people. Each edge has a weight equal to the count of interaction between the nodes within the gap of time.</p>
 </blockquote>
 <h2 id="build_weighted_graph_2">build_weighted_graph_2</h2>
-<pre><code>utilities.build\_weighted\_graph\_2(data,gap)
+<pre><code>construction.build\_weighted\_graph\_2(data,gap)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
@@ -222,10 +206,8 @@ gap = gap of time used to separate the data.</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="../construction/" class="btn btn-neutral float-right" title="Construction">Next <span class="icon icon-circle-arrow-right"></span></a>
       
-      
-        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../utilities/" class="btn btn-neutral" title="Utilities"><span class="icon icon-circle-arrow-left"></span> Previous</a>
       
     </div>
   
@@ -251,10 +233,8 @@ gap = gap of time used to separate the data.</p>
     <span class="rst-current-version" data-toggle="rst-current-version">
       
       
-        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+        <span><a href="../utilities/" style="color: #fcfcfc;">&laquo; Previous</a></span>
       
-      
-        <span style="margin-left: 15px"><a href="../construction/" style="color: #fcfcfc">Next &raquo;</a></span>
       
     </span>
 </div>
