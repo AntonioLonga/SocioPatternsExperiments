@@ -62,19 +62,17 @@
     
         <ul>
         
-            <li><a class="toctree-l3" href="#load_data">load_data</a></li>
+            <li><a class="toctree-l3" href="#get_weights">get_weights</a></li>
         
-            <li><a class="toctree-l3" href="#individuals">individuals</a></li>
+            <li><a class="toctree-l3" href="#get_neigh_weights">get_neigh_weights</a></li>
         
-            <li><a class="toctree-l3" href="#split_input_data">split_input_data</a></li>
+            <li><a class="toctree-l3" href="#clustering_coeff">clustering_coeff</a></li>
         
-            <li><a class="toctree-l3" href="#build_graphs">build_graphs</a></li>
+            <li><a class="toctree-l3" href="#betweenness_centrality">betweenness_centrality</a></li>
         
-            <li><a class="toctree-l3" href="#plot_graphs">plot_graphs</a></li>
+            <li><a class="toctree-l3" href="#closeness_centrality">closeness_centrality</a></li>
         
-            <li><a class="toctree-l3" href="#build_weighted_graph">build_weighted_graph</a></li>
-        
-            <li><a class="toctree-l3" href="#build_weighted_graph_2">build_weighted_graph_2</a></li>
+            <li><a class="toctree-l3" href="#degree_centrality">degree_centrality</a></li>
         
         </ul>
     
@@ -124,96 +122,89 @@
 <pre><code>import utilities
 </code></pre>
 
-<h2 id="load_data">load_data</h2>
-<pre><code>utilities.load_data(path)
+<h2 id="get_weights">get_weights</h2>
+<pre><code>utilities.get\_weights(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Path = String specifing the input file.  </p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array of weights.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>Data = np.ndarray of elements, each line is an entry af the array.   </p>
+<p>weights = np.ndarray or dictionary of weights.   </p>
 </blockquote>
-<h2 id="individuals">individuals</h2>
-<pre><code>utilities.individuals(data)
+<h2 id="get_neigh_weights">get_neigh_weights</h2>
+<pre><code>utilities.get\_neigh\_weights(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Data = The loaded input file.  </p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>An unique list of people in the input data.   </p>
+<p>weights = np.ndarray or dictionary of weights, where each weigth is the sum of the weights of the neighbours of the node.    </p>
 </blockquote>
-<h2 id="split_input_data">split_input_data</h2>
-<pre><code>utilities.split_input_data(data, gap=19)
+<h2 id="clustering_coeff">clustering_coeff</h2>
+<pre><code>utilities.clustering\_coeff(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Data = The loaded input file.<br />
-gap = gap of time used to separate the data.</p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>An multidimensional array, where each array represent the interacion among entries in the specified gap of time.   </p>
+<p>coeff = np.ndarray or dictionary of coefficients.</p>
 </blockquote>
-<h2 id="build_graphs">build_graphs</h2>
-<pre><code>utilities.build_graphs(data,gap=19)
+<h2 id="betweenness_centrality">betweenness_centrality</h2>
+<pre><code>utilities.betweenness\_centrality(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>data = The loaded input file.<br />
-gap = gap of time used to separate the data.</p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>Graphs = An array, where each entry is a nx.Graph() that represent the interacion among entries in the specified gap of time. <br />
-pos = The networkx position of each node in the graph layout, it is used if you want to use also the funciont <strong>plot_graphs</strong>.   </p>
+<p>coeff = np.ndarray or dictionary of coefficients.</p>
 </blockquote>
-<h2 id="plot_graphs">plot_graphs</h2>
-<pre><code>utilities.plot_graphs(graphs, splitted\_data,pos)
+<h2 id="closeness_centrality">closeness_centrality</h2>
+<pre><code>utilities.closeness\_centrality(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>graphs = An array of nx.Graphs.<br />
-splitted_data = multidimensional array containing the splitted input file<br />
-pos = The nx.position returned by the function <strong>build_graphs</strong></p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>Plots N graphs, each graph shows the interactions that happened in the gap of time. It also plots the histogram of the interactions, highlighting the current time.</p>
+<p>coeff = np.ndarray or dictionary of coefficients.</p>
 </blockquote>
-<h2 id="build_weighted_graph">build_weighted_graph</h2>
-<pre><code>utilities.build\_weighted\_graph(data,gap)
+<h2 id="degree_centrality">degree_centrality</h2>
+<pre><code>utilities.degree\_centrality(Graph, dictionary = False)
 </code></pre>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Data = The loaded input file.<br />
-gap = gap of time used to separate the data.</p>
+<p>Graph = A networkx garaph.<br />
+dictionary = If it is true then returns a dictionary [node_id : weights].
+If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
-<p>Return a Graph of interaction of people. Each edge has a weight equal to the count of interaction between the nodes within the gap of time.</p>
-</blockquote>
-<h2 id="build_weighted_graph_2">build_weighted_graph_2</h2>
-<pre><code>utilities.build\_weighted\_graph\_2(data,gap)
-</code></pre>
-
-<p><strong>Input</strong>  </p>
-<blockquote>
-<p>Data = The loaded input file.<br />
-gap = gap of time used to separate the data.</p>
-</blockquote>
-<p><strong>Output</strong>  </p>
-<blockquote>
-<p>Return a Graph of interaction of people. Each edge has a weight equal to the count of interaction between the nodes, consecutive interconnections does not twice.</p>
+<p>coeff = np.ndarray or dictionary of coefficients.</p>
 </blockquote>
               
             </div>
