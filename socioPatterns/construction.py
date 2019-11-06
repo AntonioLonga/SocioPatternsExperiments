@@ -6,8 +6,13 @@ import pandas as pd
 
 
 def load_data(path):
+    data = []
     with open(path) as f:
-        data = [[int(x) for x in line.split()] for line in f]
+        for line in f:
+            tmp = line.split()[0:3]
+            arr_tmp = [int(tmp[0]),int(tmp[1]),int(tmp[2])]
+        
+            data.append(arr_tmp)
     data = np.array(data)
     return(data)
 

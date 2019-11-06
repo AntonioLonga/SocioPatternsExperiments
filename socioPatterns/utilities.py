@@ -65,3 +65,73 @@ def degree_centrality(G,dictionary=False):
         degree_centrality = np.array(list(degree_centrality.values()))
     
     return(degree_centrality)
+
+
+
+
+
+
+
+def spectral_gap(G,binary_adj_matrix=False):
+    if (binary_adj_matrix):
+        adj = nx.adj_matrix(G).A 
+        
+        for i in range(len(adj)):    # binarizze adj matrix
+            for j in range(len(adj[i])):
+                if not(adj[i][j] == 0):
+                    adj[i][j] = 1
+
+        G1 = nx.from_numpy_matrix(adj)        
+        L = nx.normalized_laplacian_matrix(G1)   
+    else:
+        L = nx.normalized_laplacian_matrix(G)
+    
+    e = np.linalg.eigvals(L.A)
+    e = (np.sort(e)) + np.abs(np.min(e))
+    spectral_gap = e[1]
+    
+    return(spectral_gap)
+
+
+
+
+
+def find_a_c_cut(data,min_bin=40,max_bin=150,interval=1):
+    binss = np.arange(min_bin,max_bin,interval)
+    a = []
+    c = []
+    cut = []
+    for bins in binss:
+        aa, cc, cuts= fit_hist(data,bins)
+        a.append(float("{0:.2f}".format(aa)))
+        c.append(cc)
+        cut.append(cuts)
+    
+    final_a = np.mean(a)
+    final_c = np.mean(c)
+    final_cut = np.mean(cut)
+    
+    return(final_a,final_c,int(final_cut))
+
+
+def fit_hist(X,bins):
+
+    y_data,x_data = np.histogram(X,bins=bins)
+    x_data = x_data[0:-1]
+    cut = (np.argmax(y_data))*(np.max(X)/bins)
+
+    x_data_cut = []
+    y_data_cut = []
+    for i in range(len(x_data)):
+        if x_data[i] > cut:
+            x_data_cut.append(x_data[i])
+            y_data_cut.append(y_data[i])
+
+    from scipy.optimize import curve_fit
+
+    def poly(x, a, c):
+        return c*x**(-a)
+    result = curve_fit(poly, x_data_cut, y_data_cut, method='dogbox')
+
+
+    return (result[0][0],result[0][1],cut)
