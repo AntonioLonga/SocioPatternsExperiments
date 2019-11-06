@@ -74,6 +74,10 @@
         
             <li><a class="toctree-l3" href="#degree_centrality">degree_centrality</a></li>
         
+            <li><a class="toctree-l3" href="#spectral_gap">spectral_gap</a></li>
+        
+            <li><a class="toctree-l3" href="#find_a_c_cut">find_a_c_cut</a></li>
+        
         </ul>
     
 
@@ -128,7 +132,7 @@
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array of weights.</p>
 </blockquote>
@@ -142,7 +146,7 @@ If it is false then returns an np.array of weights.</p>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array.</p>
 </blockquote>
@@ -156,7 +160,7 @@ If it is false then returns an np.array.</p>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array.</p>
 </blockquote>
@@ -170,7 +174,7 @@ If it is false then returns an np.array.</p>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array.</p>
 </blockquote>
@@ -184,7 +188,7 @@ If it is false then returns an np.array.</p>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array.</p>
 </blockquote>
@@ -198,13 +202,43 @@ If it is false then returns an np.array.</p>
 
 <p><strong>Input</strong>  </p>
 <blockquote>
-<p>Graph = A networkx garaph.<br />
+<p>Graph = A networkx graph.<br />
 dictionary = If it is true then returns a dictionary [node_id : weights].
 If it is false then returns an np.array.</p>
 </blockquote>
 <p><strong>Output</strong>  </p>
 <blockquote>
 <p>coeff = np.ndarray or dictionary of coefficients.</p>
+</blockquote>
+<h2 id="spectral_gap">spectral_gap</h2>
+<pre><code>utilities.spectral_gap(Graph, binary_adj_matrix=False)
+</code></pre>
+
+<p><strong>Input</strong>  </p>
+<blockquote>
+<p>Graph = A networkx graph.<br />
+binary_adj_matrix = If it is true then returns the spectral gap using an unweighted adj matrix, while if it is false then returns the spectral gap computed using an adj matrix where the element in position i, j is equal to the weights on edge from node i to node j.</p>
+</blockquote>
+<p><strong>Output</strong>  </p>
+<blockquote>
+<p>spectral_gap = It returns a float representing the gap between the first and the second smallest eigenvalue.</p>
+</blockquote>
+<h2 id="find_a_c_cut">find_a_c_cut</h2>
+<pre><code>utilities.find_a_c_cut(data,min_bin=40,max_bin=150,interval=1):
+</code></pre>
+
+<p><strong>Input</strong>  </p>
+<blockquote>
+<p>data =  The loaded input file.<br />
+min_bin = smallest number of bins<br />
+max_bin = largest number of bins<br />
+intervals = np.arange(min_bin,max_bin,intervals)</p>
+</blockquote>
+<p><strong>Output</strong>  </p>
+<blockquote>
+<p>a = exponent of the fitted power low.<br />
+c = constant of the fitted power low.<br />
+cut = position\ of where the power low is fitted.</p>
 </blockquote>
               
             </div>
