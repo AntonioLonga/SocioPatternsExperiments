@@ -235,18 +235,20 @@ def summary(G,data,name_dataset,gaps):
     spect_binary = ut.spectral_gap(G,binary_adj_matrix=True)
     spect_weighted = ut.spectral_gap(G,binary_adj_matrix=False)
 
-    node_weights = ut.get_weights(G)
-    a,c,cut = ut.find_a_c_cut(node_weights,40,50,1)
-    node_neigh_weights = ut.get_neigh_weights(G)
-    aN,cN,cutN = ut.find_a_c_cut(node_neigh_weights,40,50,1)
-    print(tabulate([["Spectral GAP","weighted matrix",spect_weighted],
-                ["Spectral GAP","binary matrix",spect_binary],
-                ["Power low NODE_WEIGHT","a",a],
-                ["Power low NODE_WEIGHT","c",c],
-                ["Power low NODE_WEIGHT","cut",cut],
-                ["Power low NODE_NEIG","a",aN],
-                ["Power low NODE_NEIG","c",cN],
-                ["Power low NODE_NEIG","cut",cutN]]))
+    print("spectral gap on binary adj: \t"+str(spect_binary))
+    print("spectral gap on weighted adj: \t"+str(spect_weighted))
+    # node_weights = ut.get_weights(G)
+    # a,c,cut = ut.find_a_c_cut(node_weights,40,50,1)
+    # node_neigh_weights = ut.get_neigh_weights(G)
+    # aN,cN,cutN = ut.find_a_c_cut(node_neigh_weights,40,50,1)
+    # print(tabulate([["Spectral GAP","weighted matrix",spect_weighted],
+    #             ["Spectral GAP","binary matrix",spect_binary],
+    #             ["Power low NODE_WEIGHT","a",a],
+    #             ["Power low NODE_WEIGHT","c",c],
+    #             ["Power low NODE_WEIGHT","cut",cut],
+    #             ["Power low NODE_NEIG","a",aN],
+    #             ["Power low NODE_NEIG","c",cN],
+    #             ["Power low NODE_NEIG","cut",cutN]]))
     plot_assortativity_weight(G,name_dataset=name_dataset)
     plot_assortativity_degree(G,name_dataset=name_dataset)
     plot_dist_eigvals(G,False,name_dataset=name_dataset )

@@ -3,4 +3,7 @@ nav:
     - Home: index.md
     - Utility: utilities.md
     - Construction: construction.md
+    - Data sets: data.md
+    - Analysis on single data set: singleDataset.md
+    - Analysis on multiple data sets: multipleDataset.md
 theme: readthedocs
