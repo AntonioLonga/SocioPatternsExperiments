@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  <link rel="shortcut icon" href="../img/favicon.ico">
+  <title>Analysis on multiple data sets - SocioPatternsExperiments</title>
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css">
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Analysis on multiple data sets";
+    var mkdocs_page_input_path = "multipleDataset.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> SocioPatternsExperiments</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+	<ul class="current">
+	  
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="..">Home</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../utilities/">Utility</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../construction/">Construction</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../data/">Data sets</a>
+	    </li>
+          
+            <li class="toctree-l1">
+		
+    <a class="" href="../singleDataset/">Analysis on single data set</a>
+	    </li>
+          
+            <li class="toctree-l1 current">
+		
+    <a class="current" href="./">Analysis on multiple data sets</a>
+    <ul class="subnav">
+            
+    <li class="toctree-l2"><a href="#analysis-on-multiple-data-sets">Analysis on multiple data sets</a></li>
+    
+        <ul>
+        
+            <li><a class="toctree-l3" href="#plot_assortativivity_weights_graphs">plot_assortativivity_weights_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_assortativivity_degree_graphs">plot_assortativivity_degree_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_eigvals_graphs">plot_dist_eigvals_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_degree_graphs">plot_dist_degree_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_weights_graphs">plot_dist_weights_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_neigh_weights_graphs">plot_dist_neigh_weights_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_closeness_cent_graphs">plot_dist_closeness_cent_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_between_cent_graphs">plot_dist_between_cent_graphs</a></li>
+        
+            <li><a class="toctree-l3" href="#plot_dist_clust_coeff_graphs">plot_dist_clust_coeff_graphs</a></li>
+        
+        </ul>
+    
+
+    </ul>
+	    </li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">SocioPatternsExperiments</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Analysis on multiple data sets</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="analysis-on-multiple-data-sets">Analysis on multiple data sets</h1>
+<p>Can be used to plot several properties of a set of data sets.</p>
+<pre><code>import multipleDatasetAnalysis as man
+</code></pre>
+
+<h2 id="plot_assortativivity_weights_graphs">plot_assortativivity_weights_graphs</h2>
+<pre><code>man.plot_assortativity_weight(data_sets,gap=19,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3)
+</code></pre>
+
+<h3 id="input">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+</ul>
+<h3 id="output">Output</h3>
+<ul>
+<li>Plot the assortativity concerning the weights for each data set.</li>
+</ul>
+<h2 id="plot_assortativivity_degree_graphs">plot_assortativivity_degree_graphs</h2>
+<pre><code>man.plot_assortativity_degree(data_sets,gap=19,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3)
+</code></pre>
+
+<h3 id="input_1">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+</ul>
+<h3 id="output_1">Output</h3>
+<ul>
+<li>Plot the assortativity concerning the degrees for each data set.</li>
+</ul>
+<h2 id="plot_dist_eigvals_graphs">plot_dist_eigvals_graphs</h2>
+<pre><code>man.plot_dist_eigvals_graphs(data_sets,binary_adj_matrix=False,gap=19,bins=40,figsize=(18,12),s=3,color=&quot;blue&quot;,save=False)
+</code></pre>
+
+<h3 id="input_2">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>binary_adj_matrix = if it is false then it uses the weighted adj matrix, while if it is true then it uses the binary adj matrix.</li>
+</ul>
+<h3 id="output_2">Output</h3>
+<ul>
+<li>Plot the histogram of the eigenvalues for each data set.</li>
+</ul>
+<h2 id="plot_dist_degree_graphs">plot_dist_degree_graphs</h2>
+<pre><code>man.plot_dist_degree_graphs(data_sets,normed=True,density=True,gap=19,bins=40,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_3">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_3">Output</h3>
+<ul>
+<li>Plot the histogram of the degrees for each data set.</li>
+</ul>
+<h2 id="plot_dist_weights_graphs">plot_dist_weights_graphs</h2>
+<pre><code>man.plot_dist_weights_graphs(data_sets,normed=True,density=True,gap=19,bins=40,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_4">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_4">Output</h3>
+<ul>
+<li>Plot the histogram of the weights for each data set.</li>
+</ul>
+<h2 id="plot_dist_neigh_weights_graphs">plot_dist_neigh_weights_graphs</h2>
+<pre><code>man.plot_dist_neigh_weights_graphs(data_sets,normed=True,density=True,gap=19,bins=40,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_5">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_5">Output</h3>
+<ul>
+<li>Plot the histogram of the weights of the neighbours of a node for each data set.</li>
+</ul>
+<h2 id="plot_dist_closeness_cent_graphs">plot_dist_closeness_cent_graphs</h2>
+<pre><code>man.plot_dist_closeness_cent_graphs(data_sets,gap=19,normed=True,density=True,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_6">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_6">Output</h3>
+<ul>
+<li>Plot the histogram of the closeness centrality of the nodes for each data set.</li>
+</ul>
+<h2 id="plot_dist_between_cent_graphs">plot_dist_between_cent_graphs</h2>
+<pre><code>man.plot_dist_between_cent_graphs(data_sets,gap=19,normed=True,density=True,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_7">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_7">Output</h3>
+<ul>
+<li>Plot the histogram of the betweeness centrality of the nodes for each data set.</li>
+</ul>
+<h2 id="plot_dist_clust_coeff_graphs">plot_dist_clust_coeff_graphs</h2>
+<pre><code>man.plot_dist_clust_coeff_graphs(data_sets,gap=19,normed=True,density=True,name_dataset=None,color=&quot;blue&quot;,figsize=(5,5),s=3):
+</code></pre>
+
+<h3 id="input_8">Input</h3>
+<ul>
+<li>data_sets = An array of loaded data sets.</li>
+<li>gap = gap of time used to split the data sets.</li>
+<li>normed = If it is true, the values are normalized.</li>
+<li>density = plt.hist(..., densty, ...)</li>
+</ul>
+<h3 id="output_8">Output</h3>
+<ul>
+<li>Plot the histogram of the clustering coefficients of the nodes for each data set.</li>
+</ul>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="../singleDataset/" class="btn btn-neutral" title="Analysis on single data set"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../singleDataset/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+    </span>
+</div>
+    <script>var base_url = '..';</script>
+    <script src="../js/theme.js" defer></script>
+      <script src="../search/main.js" defer></script>
+
+</body>
+</html>
