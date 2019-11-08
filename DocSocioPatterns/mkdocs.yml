@@ -1,5 +1,6 @@
-site_name: My Docs
+site_name: SocioPatternsExperiments
 nav:
     - Home: index.md
-    - About: about.md
+    - Utility: utilities.md
+    - Construction: construction.md
 theme: readthedocs
