@@ -185,20 +185,20 @@ def plot_dist_closeness_cent(G,bins=40,normed=True,density=True,name_dataset=Non
     plt.hist(closensess,bins=bins,density=density,color=color)
     plt.show()
 
-def plot_dist_degree_cent(G,bins=40,normed=True,density=True,name_dataset=None,color="blue",figsize=(5,5),s=3):
-    if (name_dataset == None):
-        title = ""
-    else:
-        title = "\n dataset = "+str(name_dataset)
+# def plot_dist_degree_cent(G,bins=40,normed=True,density=True,name_dataset=None,color="blue",figsize=(5,5),s=3):
+#     if (name_dataset == None):
+#         title = ""
+#     else:
+#         title = "\n dataset = "+str(name_dataset)
 
-    degree = ut.degree_centrality(G)
+#     degree = ut.degree_centrality(G)
     
-    if (normed):
-        degree = np.array(degree)/np.max(degree)
-    plt.figure(figsize=figsize)
-    plt.title("Degree centrality"+title)
-    plt.hist(degree,bins=bins,density=density,color=color)
-    plt.show()
+#     if (normed):
+#         degree = np.array(degree)/np.max(degree)
+#     plt.figure(figsize=figsize)
+#     plt.title("Degree centrality"+title)
+#     plt.hist(degree,bins=bins,density=density,color=color)
+#     plt.show()
 
 def plot_dist_between_cent(G,bins=40,normed=True,density=True,name_dataset=None,color="blue",figsize=(5,5),s=3):
     if (name_dataset == None):
@@ -261,8 +261,4 @@ def summary(G,data,name_dataset,gaps):
     plot_dist_clust_coeff(G,name_dataset=name_dataset)
 
 
-    
-
-
-
-
+ 

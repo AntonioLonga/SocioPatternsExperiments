@@ -4,6 +4,47 @@ import matplotlib.pyplot as plt
 import pandas as pd
 
 
+from tabulate import tabulate
+
+def split_data_in_groups(path_data,path_metadata):
+
+    data = load_data(path_data)
+    file_metadata = path_metadata
+
+    metadata = dict()
+    with open(file_metadata) as f:
+        for line in f:
+            node,group = line.split()
+            metadata[int(node)] = group
+
+    groups = dict()
+    person_type = []
+    for i in np.unique(list(metadata.values())):
+        person_type.append(i)
+
+    person_type.append("Mixed")
+
+    for i in person_type:
+        groups[i] = []
+
+
+    for t,i,j in data:
+        if(metadata[i] == metadata[j]):
+            groups[metadata[i]].append([t,i,j]) 
+        else:
+            person = "Mixed"
+            groups[person].append([t,i,j])
+
+
+    interactions_in_group = [len(x) for x in groups.values()]
+    node_in_group = [len(np.unique(np.array(x)[:,1:])) for x in groups.values()]
+    print(tabulate([["Name"]+list(groups.keys())+["TOT"],
+                    ["interactions"]+interactions_in_group+[len(data)],
+                    ["nodes"]+node_in_group+[len(individuals(data))]]))
+
+
+    return(groups)
+
 
 def load_data(path):
     data = []
