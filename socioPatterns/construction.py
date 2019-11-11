@@ -42,7 +42,8 @@ def split_data_in_groups(path_data,path_metadata):
                     ["interactions"]+interactions_in_group+[len(data)],
                     ["nodes"]+node_in_group+[len(individuals(data))]]))
 
-
+    for key in groups.keys():
+        groups[key] = np.array(groups[key])
     return(groups)
 
 
